@@ -7,6 +7,14 @@ from fastapi.staticfiles import StaticFiles
 import cv_modelling as cvModeling
 
 app = FastAPI(title="Upload file using FastAPI")
+
+def ensure_uploaded_files_directory():
+    upload_directory = "./uploaded_files"
+    if not os.path.exists(upload_directory):
+        os.makedirs(upload_directory)
+
+ensure_uploaded_files_directory()
+
 # Mount a directory to serve static files
 app.mount("/uploaded_files", StaticFiles(directory="uploaded_files"), name="uploaded_files")
 
