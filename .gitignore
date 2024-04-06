@@ -1,1 +1,5 @@
 /Users/dbot/Downloads/API/__pycache__
+.DS_Store
+__pycache__/cv_modelling.cpython-311.pyc
+__pycache__/main.cpython-311.pyc
+__pycache__/monitor.cpython-311.pyc
