@@ -30,12 +30,12 @@ async def upload(file: UploadFile = File(...)):
         f.write(content)
 
     # Construct the URL of the uploaded file
-    base_url = "https://0cc9-27-5-219-67.ngrok-free.app"  # Replace with your actual domain
+    base_url = "http://localhost:8000"  # Replace with your actual domain
     file_url = f"{base_url}/uploaded_files/{file_name_without_extension}/{file.filename}"
     stl_url = r"https://0cc9-27-5-219-67.ngrok-free.app/uploaded_files/Workspace/Workspace.stl"
-    # data = cvModeling.firstmain(url=file_url,folderName=file_name_without_extension,base_url=base_url,)
-    # print("jfff",data)
-    return {"success": True, "file_url": file_url, "stl_url": stl_url,"message": "File uploaded successfully"}
+    data = cvModeling.firstmain(url=file_url,folderName=file_name_without_extension,base_url=base_url,)
+    print("jfff",data)
+    return {"success": True, "file_url": file_url, "stl_url": data,"message": "File uploaded successfully"}
 
 # @app.get("/download/{filename}")
 # async def download_file(filename: str):

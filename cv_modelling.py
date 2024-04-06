@@ -332,33 +332,33 @@ def main(xlPath,folderName= 'op', base_url = ''):
     return file_url
 
 
-def firstmain(url, folderName, base_url):
-    # Set the headers to bypass ngrok browser warning
-    headers = {'ngrok-skip-browser-warning': 'true'}
+# def firstmain(url, folderName, base_url):
+#     # Set the headers to bypass ngrok browser warning
+#     headers = {'ngrok-skip-browser-warning': 'true'}
 
-    # Make a request to the provided URL with the custom headers
-    response = requests.get(url, headers=headers)
+#     # Make a request to the provided URL with the custom headers
+#     response = requests.get(url, headers=headers)
 
-    # Check if the request was successful\
-    print("HEllo")
-    if response.status_code == 200:
-        print("hai")
-        # Convert the response content to bytes and create a file
-        content = response.content
-        with open('temporary_file.ply', 'wb') as f:
-            f.write(content)
+#     # Check if the request was successful\
+#     print("HEllo")
+#     if response.status_code == 200:
+#         print("hai")
+#         # Convert the response content to bytes and create a file
+#         content = response.content
+#         with open('temporary_file.ply', 'wb') as f:
+#             f.write(content)
 
-        # Call your existing function with the downloaded file
-        height, l1, l2, width = ransac_to_dim(filePath='temporary_file.ply')
-        xlpath = lh_to_excel(l1, width, height, l2, folderName=folderName)
-        return main(xlPath=xlpath, folderName=folderName, base_url=base_url)
-    else:
-        print("Failed to retrieve the file.")
+#         # Call your existing function with the downloaded file
+#         height, l1, l2, width = ransac_to_dim(filePath='temporary_file.ply')
+#         xlpath = lh_to_excel(l1, width, height, l2, folderName=folderName)
+#         return main(xlPath=xlpath, folderName=folderName, base_url=base_url)
+#     else:
+#         print("Failed to retrieve the file.")
 
 
-# def firstmain(url,folderName, base_url):
-#     height,l1,l2,width=ransac_to_dim(filePath=url)
-#     xlpath = lh_to_excel(l1,width,height,l2,folderName=folderName)
-#     print(xlpath)
-#     return main(xlPath=xlpath,folderName=folderName, base_url=base_url)
+def firstmain(url,folderName, base_url):
+    height,l1,l2,width=ransac_to_dim(filePath=url)
+    xlpath = lh_to_excel(l1,width,height,l2,folderName=folderName)
+    print(xlpath)
+    return main(xlPath=xlpath,folderName=folderName, base_url=base_url)
 
